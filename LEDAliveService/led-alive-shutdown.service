@@ -1,0 +1,12 @@
+[Unit]
+Description=somni OdroidN2-SenseHub LED Alive Shutdown
+DefaultDependencies=no
+Before=halt.target shutdown.target reboot.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /opt/somni/sensehub/led-alive/shutdown.sh
+RemainAfterExist=yes
+
+[Install]
+WantedBy=halt.target shutdown.target reboot.target

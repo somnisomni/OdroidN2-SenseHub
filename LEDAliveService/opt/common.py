@@ -1,0 +1,1 @@
+LED_WIRINGPI_PIN = 2

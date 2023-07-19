@@ -1,0 +1,11 @@
+[Unit]
+Description=somni OdroidN2-SenseHub LED Alive Startup
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash /opt/somni/sensehub/led-alive/startup.sh
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
