@@ -30,5 +30,9 @@ if __name__ == "__main__":
     wpi.digitalWrite(LED_WIRINGPI_PIN, wpi.HIGH)
     sleep(0.1)
 
-  # Make sure LED is off
+  # Last 1s ON
+  wpi.digitalWrite(LED_WIRINGPI_PIN, wpi.HIGH)
+  sleep(1)
+
+  # Turn LED off
   wpi.digitalWrite(LED_WIRINGPI_PIN, wpi.LOW)
