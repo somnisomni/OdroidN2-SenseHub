@@ -1,0 +1,3 @@
+paho-mqtt
+odroid-wiringpi
+odroid-dht11
