@@ -42,8 +42,8 @@ class CPUCluster:
     self.DISCOVERY_CONFIG_MIN = dict(self.__discovery_config_common)
     self.DISCOVERY_CONFIG_MIN.update({
         "name": "{} System CPU Cluster #{} Min Frequency".format(const.DEVICE_NAME, policy_num),
-        "state_topic": caller_module.get_real_topic("system/state"),
         "unique_id": caller_module.homeassistant_real_unique_id + "_cpufreq{}_min".format(policy_num),
+        "state_topic": caller_module.get_real_topic("system/state"),
         "value_template": "{{ " + "value_json.cpufreq{}.min".format(policy_num) + " }}",
     })
 

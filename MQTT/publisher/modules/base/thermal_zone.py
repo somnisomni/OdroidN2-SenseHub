@@ -31,7 +31,6 @@ class ThermalZone:
   def get_values(self) -> dict:
     key = "thermalzone{}".format(self.ZONE_NUM)
     output = {}
-    output[key] = {}
 
     try:
       with open(self.SYSFILE_INFO.temp_sysfile, "r") as tempCall:
