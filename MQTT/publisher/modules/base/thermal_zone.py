@@ -19,12 +19,12 @@ class ThermalZone:
     self.ZONE_NUM = zone_num
     self.SYSFILE_INFO = ThermalZoneSysfileInfo(zone_num)
 
-    self.DISCOVERY_TOPIC = caller_module.homeassistant_discovery_topic.replace(caller_module.homeassistant_unique_id, "thermalzone{}".format(zone_num))
+    self.DISCOVERY_TOPIC = caller_module.homeassistant_discovery_topic.replace(caller_module.homeassistant_unique_id, "system_thermalzone{}".format(zone_num))
     self.DISCOVERY_CONFIG = dict(self.__discovery_config_common)
     self.DISCOVERY_CONFIG.update({
-        "name": "{} {}".format(const.DEVICE_NAME, zone_name if zone_name else "Thermal Zone #{}".format(zone_num)),
+        "name": "{} System {}".format(const.DEVICE_NAME, zone_name if zone_name else "Thermal Zone #{}".format(zone_num)),
         "unique_id": caller_module.homeassistant_real_unique_id + "_thermalzone{}".format(zone_num),
-        "state_topic": caller_module.get_real_topic("thermalzone/state"),
+        "state_topic": caller_module.get_real_topic("system/state"),
         "value_template": "{{ " + "value_json.thermalzone{}".format(zone_num) + " }}",
     })
 
