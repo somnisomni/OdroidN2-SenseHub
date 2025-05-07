@@ -83,17 +83,17 @@ class MemoryInfo:
 
       for line in meminfo:
         if line.startswith("MemTotal"):
-          output["total"] = round(int(line.split()[1]) / 1024, 2)
+          output["total"] = "{:.2f}".format(round(int(line.split()[1]) / 1024, 2))
         elif line.startswith("MemAvailable"):
-          output["available"] = round(int(line.split()[1]) / 1024, 2)
+          output["available"] = "{:.2f}".format(round(int(line.split()[1]) / 1024, 2))
         elif line.startswith("SwapTotal"):
-          output["swap_total"] = round(int(line.split()[1]) / 1024, 2)
+          output["swap_total"] = "{:.2f}".format(round(int(line.split()[1]) / 1024, 2))
         elif line.startswith("SwapFree"):
-          output["swap_free"] = round(int(line.split()[1]) / 1024, 2)
+          output["swap_free"] = "{:.2f}".format(round(int(line.split()[1]) / 1024, 2))
     except:
       print("Failed to get memory info from '/proc/meminfo'!")
 
-    output["used"] = output["total"] - output["available"]
-    output["swap_used"] = output["swap_total"] - output["swap_free"]
+    output["used"] = "{:.2f}".format(float(output["total"]) - float(output["available"]))
+    output["swap_used"] = "{:.2f}".format(float(output["swap_total"]) - float(output["swap_free"]))
 
     return { "memory": output }
